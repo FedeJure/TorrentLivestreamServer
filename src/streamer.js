@@ -19,7 +19,7 @@ class Streamer {
     async init() {
         this.torrentFetcher.getTorrentsAndSeeder(this.torrentProvider.getNext().hash)
         .then(torrentData => {
-            this.publishVideo(shuffle(torrentData.files)[0].stream, "stream/stream")
+            this.publishVideo(shuffle(torrentData.files.filter(f => f.type.includes("video")))[0].stream, "stream/stream")
         })
     }
 
