@@ -8,7 +8,7 @@ class TorrentFetcher {
     }
 
     async getTorrentsAndSeeder(hash) {
-        return await fetch(`${baseUrl}/api/torrents/${hash.toLocaleLowerCase(hash)}`);
+        return await fetch(`${baseUrl}/api/torrents/${hash.toLocaleLowerCase()}`);
     }
 }
 
