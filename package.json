@@ -1,0 +1,23 @@
+{
+  "name": "torrentstreamer",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ffmpeg/core": "^0.8.5",
+    "@ffmpeg/ffmpeg": "^0.9.7",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "ffmpeg-cli": "^2.7.1",
+    "lodash": "^4.17.20",
+    "node-fetch": "^2.6.1",
+    "node-media-server": "^2.2.4"    
+  }
+}
