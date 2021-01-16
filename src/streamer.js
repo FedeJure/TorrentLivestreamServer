@@ -20,7 +20,7 @@ class Streamer {
     async init() {
         const torrent = await this.torrentFetcher.getTorrentsAndSeeder(this.torrentProvider.getNext().hash);
         console.log(torrent)
-        this.publishVideo("http://backend.seta.fun:3000/play?torrent=2D115F34CB0FC4FD211A172B95FB513145BE7F69&file=Los%20Simpsons%20Audio%20Latino%20Temp%201%20By%20The%20PerzBlazer%2F1x01%20Especial%20de%20Navidad.mp4", "stream")
+        // this.publishVideo("http://backend.seta.fun:3000/play?torrent=2D115F34CB0FC4FD211A172B95FB513145BE7F69&file=Los%20Simpsons%20Audio%20Latino%20Temp%201%20By%20The%20PerzBlazer%2F1x01%20Especial%20de%20Navidad.mp4", "stream")
     }
 
     publishVideo(filePath, destinationFile) {

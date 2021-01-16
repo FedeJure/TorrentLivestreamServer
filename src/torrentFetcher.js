@@ -1,5 +1,5 @@
 
-const baseUrl = "http://backend.seta.fun:3000/";
+const baseUrl = "http://backend.seta.fun:3000";
 const fetch = require('node-fetch');
 
 
