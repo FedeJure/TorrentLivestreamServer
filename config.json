@@ -1,0 +1,4 @@
+{
+    "torrentProviderHost" : "http://backend.seta.fun",
+    "torrentProviderPort" : 3000
+}

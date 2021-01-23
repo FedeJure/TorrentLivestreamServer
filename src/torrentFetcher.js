@@ -1,5 +1,7 @@
 
-const baseUrl = "http://backend.seta.fun:3000";
+const { torrentProviderHost, torrentProviderPort } = require("../config.json");
+
+const baseUrl = `${torrentProviderHost}:${torrentProviderPort}`;
 const fetch = require('node-fetch');
 
 const getMagnet = hash => `magnet:?xt=urn:btih:${hash}`;
