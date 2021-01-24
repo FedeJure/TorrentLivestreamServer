@@ -20,52 +20,14 @@ const config = {
 var nms = new NodeMediaServer(config)
 nms.run();
 
-const streamer = new Streamer(nms)
+const channel1 = new Streamer(nms, "channel01");
+const channel2 = new Streamer(nms, "channel02");
+const channel3 = new Streamer(nms, "channel03");
+const channel4 = new Streamer(nms, "channel04");
 
 setTimeout(() => {
-  streamer.startNewStream();
+  channel1.startNewStream();
+  channel2.startNewStream();
+  channel3.startNewStream();
+  channel4.startNewStream();
 },500);
-
-
-nms.on('preConnect', (id, args) => {
-  console.log('[NodeEvent on preConnect]', `id=${id} args=${JSON.stringify(args)}`);
-  // let session = nms.getSession(id);
-  // session.reject();
-});
- 
-nms.on('postConnect', (id, args) => {
-  console.log('[NodeEvent on postConnect]', `id=${id} args=${JSON.stringify(args)}`);
-});
- 
-nms.on('doneConnect', (id, args) => {
-  console.log('[NodeEvent on doneConnect]', `id=${id} args=${JSON.stringify(args)}`);
-});
- 
-nms.on('prePublish', (id, StreamPath, args) => {
-  console.log('[NodeEvent on prePublish]', `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`);
-  // let session = nms.getSession(id);
-  // session.reject();
-});
- 
-nms.on('postPublish', (id, StreamPath, args) => {
-  console.log('[NodeEvent on postPublish]', `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`);
-});
- 
-nms.on('donePublish', (id, StreamPath, args) => {
-  console.log('[NodeEvent on donePublish]', `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`);
-  streamer.startNewStream();  
-});
- 
-nms.on('prePlay', (id, StreamPath, args) => {
-  console.log('[NodeEvent on prePlay]', `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`);
-  // let session = nms.getSession(id);
-  // session.reject();
-});
- 
-nms.on('postPlay', (id, StreamPath, args) => {
-  console.log('[NodeEvent on postPlay]', `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`);
-});
- 
-nms.on('donePlay', (id, StreamPath, args) => {
-  console.log('[NodeEvent on donePlay]', `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`);
-});

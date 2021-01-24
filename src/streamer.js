@@ -10,16 +10,22 @@ const cleanUrl = (path, url) => {
 }
 
 class Streamer {
-    constructor(nms) {
+    constructor(nms, name) {
         this.nms = nms;
+        this.name = name;
         this.torrentProvider = new TorrentProvider();
         this.torrentFetcher = new TorrentFetcher();
+
+        nms.on('donePublish', (id, StreamPath, args) => {
+            console.log('[NodeEvent on donePublish]', `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`);
+            this.startNewStream();  
+        });
     }
 
     async init() {
         this.torrentFetcher.getTorrentsAndSeeder(this.torrentProvider.getNext().hash)
         .then(torrentData => {
-            this.publishVideo(shuffle(torrentData.files.filter(f => f.type.includes("video")))[0].stream, "stream/stream")
+            this.publishVideo(shuffle(torrentData.files.filter(f => f.type.includes("video")))[0].stream, this.name)
         })
     }
 
@@ -28,7 +34,7 @@ class Streamer {
     }
 
     publishVideo(filePath, destinationFile) {
-        ffmpeg.run(`-re -i ${filePath} -c copy -f flv rtmp://localhost:1935/${destinationFile}`).then(data => console.log(data)).catch(console.error)
+        ffmpeg.run(`-re -i ${filePath} -c copy -f flv rtmp://localhost:1935/stream/${destinationFile}`).then(data => console.log(data)).catch(console.error)
     }
 }
 
