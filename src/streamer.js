@@ -1,6 +1,7 @@
 const {TorrentProvider} = require("./torrentProvider")
 const {TorrentFetcher} = require("./torrentFetcher")
 const {shuffle} = require("lodash");
+const {localHost} = require("../config.json");
 
 const ffmpeg = require("ffmpeg-cli");
 
@@ -34,7 +35,7 @@ class Streamer {
     }
 
     publishVideo(filePath, destinationFile) {
-        ffmpeg.run(`-re -i ${filePath} -c copy -f flv rtmp://localhost:1935/stream/${destinationFile}`).then(data => console.log(data)).catch(console.error)
+        ffmpeg.run(`-re -i ${filePath} -c copy -f flv ${localHost}:1935/stream/${destinationFile}`).then(data => console.log(data)).catch(console.error)
     }
 }
 

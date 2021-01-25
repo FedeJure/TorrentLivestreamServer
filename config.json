@@ -1,4 +1,5 @@
 {
     "torrentProviderHost" : "http://backend.seta.fun",
-    "torrentProviderPort" : 3000
+    "torrentProviderPort" : 3000,
+    "localHost": "rtmp://localhost"
 }
